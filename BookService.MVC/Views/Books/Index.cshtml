@@ -1,0 +1,17 @@
+﻿@model List<BookBasicDto>
+
+<h1>Boeken</h1>
+
+<div class="row">
+    <div class="col-4">
+        <ul class="list-group">
+            @foreach (var bookBasic in Model)
+            {
+                <li class="list-group-item @(bookBasic.Title.Contains("C#") || bookBasic.Title.Contains(".Net") ? "list-group-item-success" : "")">
+                    <a asp-area="" asp-action="Detail" asp-controller="Books" asp-route-id="@bookBasic.Id">@bookBasic.Title</a>
+                    <em>(@bookBasic.Id)</em>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
